@@ -14,4 +14,8 @@ function App() {
   );
 }
 
-export default App;
+mapStateToProps = (state) => {
+  return {startingLocation: state.StartingLocation, destination: state.destination}
+} 
+
+export default connect()(App);
