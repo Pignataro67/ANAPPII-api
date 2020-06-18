@@ -10,7 +10,7 @@ class Search extends Component {
     destination: ''
 }
 
-handleOnSubmit = (e) => {
+handleFormSubmit = (e) => {
   e.preventDefault()
   console.log(this.state)
 }
@@ -25,6 +25,14 @@ handleChangeDestination = ({value: destination}) => {
   this.setState({
     destination
   })
+}
+
+handleStartSearch = () => {
+  console.log(this.state.startingLocation)
+}
+
+handleDestinationSearch = () => {
+  console.log(this.state.destination)
 }
 
   render() {
