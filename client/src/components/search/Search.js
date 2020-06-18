@@ -29,10 +29,17 @@ handleChangeDestination = ({value: destination}) => {
 
   render() {
     return (
-      <form>
-        <SearchInput />
-        <SearchInput /> 
-      </form>
+      <Card>
+        <form onSubmit={this.handleOnSubmit}>
+        <label="Starting Location..." onChange={this.handleChangeStart}/>
+        <br/>
+        <br/>
+        <SearchInput label="Destination..." onChange={this.handleChangeDestination}/> 
+        <br/>
+        <br/> 
+        <Button buttonTitle="Submit" /> 
+        </form>
+      </Card>
     );
   }
 }
