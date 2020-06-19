@@ -38,15 +38,14 @@ handleDestinationSearch = () => {
   render() {
     return (
       <Card>
-        <form onSubmit={this.handleOnSubmit}>
+        <SearchInput label="Starting Location..." onChange={this.handleChangeStart} onClick={this.handleStartSearch}/>
         <label="Starting Location..." onChange={this.handleChangeStart}/>
         <br/>
         <br/>
-        <SearchInput label="Destination..." onChange={this.handleChangeDestination}/> 
+        <SearchInput label="Destination..." onChange={this.handleChangeDestination} onClick={this.handleDestinationSearch}/>/> 
         <br/>
         <br/> 
-        <Button buttonTitle="Submit" /> 
-        </form>
+        <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>/>
       </Card>
     );
   }
