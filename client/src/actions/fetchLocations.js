@@ -6,5 +6,10 @@ function _fetchLocation(input) {
 }
 
 export function fetchStartingLocation(input) {
-  console.log(input);
+  console.log(input)
+  return (dispatch) => {
+    dispatch({ type: 'FETCHING_SUGGESTED_START_LOCATIONS' });
+
+    _fetchLocation(input).then(suggestedStartingLocations => dispatch({ type: 'DISPLAY_START_LOCATIONS', suggestedStartingLocations }));
+  };
 }
