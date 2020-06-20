@@ -13,3 +13,11 @@ export function fetchStartingLocation(input) {
     _fetchLocation(input).then(suggestedStartingLocations => dispatch({ type: 'DISPLAY_START_LOCATIONS', suggestedStartingLocations }));
   };
 }
+
+export function fetchDestination(input) {
+  console.log(input)
+    return (dispatch) => {
+    dispatch({ type: 'FETCHING_SUGGESTED_DESTINATION' });
+    _fetchLocation(input).then(suggestedDestinations => dispatch({ type: 'DISPLAY_DESTINATIONS', suggestedDestinations }));
+  };
+} 
