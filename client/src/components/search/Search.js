@@ -14,10 +14,9 @@ handleFormSubmit = (e) => {
   e.preventDefault()
 }
 
-handleChangeStart = ({value: startingLocation}) => {
+handleChangeStart = (e) => {
   this.setState({
-    startingLocation:
-    e.target.value,
+    startingLocation: e.target.value,
   })
 }
 
@@ -47,17 +46,17 @@ handleUpdateAddress = (e) => {
   render() {
     return (
       <Card>
-        <SearchInput label="Starting Location..." onChange={this.handleChangeStart} onClick={this.handleStartSearch}/>
+        <SearchInput label="Starting Location..." 
         suggestedLocations={this.props.suggestedStartingLocations}
         onChange={this.handleChangeStart} 
         onSubmit={this.handleStartSearch}
         handleUpdateAddress={this.handleUpdateAddress}/>
         <br/>
         <br/>
-        <SearchInput label="Destination..." onChange={this.handleChangeDestination} onClick={this.handleDestinationSearch}/>/> 
+        <SearchInput label="Destination..." onChange={this.handleChangeDestination} onClick={this.handleDestinationSearch}/> 
         <br/>
         <br/> 
-        <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>/>
+        <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>
       </ Card>
     )
   }
