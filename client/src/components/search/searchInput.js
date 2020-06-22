@@ -17,6 +17,22 @@ class SearchInput extends Component{
     }
   }
 
+  addSuggestedLocationsToState = (locations) => {
+    const suggestedLocations = locations.map(({place_id, id, description}) => ({key: id, value: place_id, text: description}))
+    this.setState({
+      suggestedLocations, 
+      isDropdownOpen: true
+    })
+  }
+
+  handleDropdownChange = (e) => {
+    debugger
+    this.setState({
+        isDropdownOpen: false
+    })
+    this.props.handleUpdateAddress(e)
+  }
+
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
