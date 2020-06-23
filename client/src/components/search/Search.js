@@ -20,9 +20,9 @@ handleChangeStart = (e) => {
   })
 }
 
-handleChangeDestination = (e, {value: destination}) => {
+handleChangeDestination = (e) => {
   this.setState({
-    destination
+    destination: e.target.value
   })
 }
 
@@ -30,16 +30,24 @@ handleStartSearch = (e) => {
   e.preventDefault()
   e.stopPropagation()
   this.props.actions.fetchStartingLocation(this.state.startingLocation)
-
-handleDestinationSearch = (e) => {
-  e.preventDefault()
-  e.stopPropagation()
-  console.log(this.state.destination)
 }
 
-handleUpdateAddress = (e) => {
+handleDestinationSearch = (e) => {
+  console.log(this.state.destination)
+  e.preventDefault()
+  e.stopPropagation()
+  this.props.actions.fetchDestination(this.state.destination)
+}
+
+handleUpdateStreetAddress = (e) => {
   this.setState({
     startingLocation: e.currentTarget.innerText,
+  })
+}
+
+handleUpdateDestinationAddress = (e) => {
+  this.setState({
+      destination: e.currentTarget.innerText,
   })
 }
 
@@ -47,13 +55,18 @@ handleUpdateAddress = (e) => {
     return (
       <Card>
         <SearchInput label="Starting Location..." 
-        suggestedLocations={this.props.suggestedStartingLocations}
-        onChange={this.handleChangeStart} 
-        onSubmit={this.handleStartSearch}
-        handleUpdateAddress={this.handleUpdateAddress}/>
+          suggestedLocations={this.props.suggestedStartingLocations}
+          onChange={this.handleChangeStart} 
+          onSubmit={this.handleStartSearch}
+          handleUpdateAddress={this.handleUpdateStartAddress}
+          value={this.state.startingLocation}/>
         <br/>
         <br/>
-        <SearchInput label="Destination..." onChange={this.handleChangeDestination} onClick={this.handleDestinationSearch}/> 
+        <SearchInput label="Destination..." 
+          suggestedLocations={this.props.suggestedDestinations}
+          onChange={this.handleChangeDestination} 
+          onSubmit={this.handleDestinationSearch}
+          handleUpdateAddress={this.handleUpdateDestinationAddress}/> 
         <br/>
         <br/> 
         <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>
