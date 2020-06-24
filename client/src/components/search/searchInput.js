@@ -1,5 +1,6 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
 class SearchInput extends Component{
 
@@ -40,17 +41,19 @@ class SearchInput extends Component{
     return (
       <form onSubmit={this.props.onSubmit}>
         <Dropdown onSearchChange={this.props.onChange}
-                  onChange={this.handleDropdownChange} 
-                  placeholder={this.props.label} 
-                   search selection 
-                  onFocus={this.onFocus} 
-                  options={this.state.suggestedLocations} 
-                  open={this.state.isDropdownOpen || false} 
-                  icon={<span></span>}
-                />
-        <input type="submit"/>
-        </form>
-      )
+          onChange={this.handleDropdownChange} 
+          placeholder={this.props.label} 
+          search selection 
+          onFocus={this.onFocus} 
+          options={this.state.suggestedLocations} 
+          open={this.state.isDropdownOpen || false} 
+          icon={<span></span>}
+        />
+      <Button icon>
+        <Icon name='search'/> 
+      </Button>
+      </form>
+    )
   }
 }
 
