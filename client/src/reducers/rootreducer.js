@@ -1,14 +1,26 @@
 export default function rootReducer(state = {
-  startingLocation: '', destination: ''
+  isFetchingMapboxKey: false,
+  mapboxKey: '',
+  isFetchingStartingLocation: false,
+  isFetchingDestination: false,
+  suggestedStartingLocations: [],
   suggestedDestinations: [],
   isConvertingStartLatLong: false,
   isConvertingDestinationLatLong: false,
-  startLatLong: '',
-  destinationLatLong: ''
+  startLat: '',
+  startLong: '',
+  destinationLat: '',
+  destinationLong:''
 }, action) {
-  switch(action.type){
+  switch(action.type) {
+    case 'FETCHING_MAPBOX_KEY':
+      return {...state, isFetchingMapboxKey: true}    
+    case "ADD_MAPBOX_KEY_TO_STATE":
+      return {...state, isFetchignMapboxKey: false, mapboxKey: action.key}
     case "FETCHING_SUGGESTED_START_LOCATIONS":
-      return {}
+      return {...state, isFetchingStartingLocation: true, suggestedStartingLocations: []}
+    case "DISPLAY_START_LOCATIONS":
+      return {...state, isFetchingStartingLocation: false, suggestedStartingLocations: action.suggestedStartingLocations}
     case "FETCHING_SUGGESTED_DESTINATIONS":
       return {...state, isFetchingDestination: true, suggestedDestinations: []}
     case "DISPLAY_DESTINATIONS":
