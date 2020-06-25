@@ -9,8 +9,14 @@ import Header from './components/Header';	import ConfirmRouteContainer from './c
 import ResultsContainer from './containers/ResultsContainer';
 import SearchContainer from './containers/SearchContainer';
 import Background from './images/Background.jpg';
+import { getMapboxKey } from './actions/fetchLocations';
 
-function App() {
+class App extends Component() {
+
+  componentDidMount(){
+    this.props.getMapboxKey()
+  }
+
   return (
     <div className="App">
       <Header />
@@ -23,6 +29,10 @@ function App() {
         </Router>
     </div>
   );
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {getMapboxKey: () => dispatch(getMapboxKey())}
 }
 
 const mapStateToProps = (state) => {
