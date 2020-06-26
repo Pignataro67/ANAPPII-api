@@ -32,7 +32,7 @@ export function convertStartLatLong(location) {
   console.log(location)
   return (dispatch) => {
     dispatch({type: 'CONVERTING_START_LAT_LONG'})
-    _getLatLong(location).then(startLatLong => dispatch({type: 'RETRIEVE_START_LAT_LONG', startLatLong}))
+    return _getLatLong(location).then(({ lat, lng }) => dispatch({type: 'RETRIEVE_START_LAT_LONG',  startLat: lat, startLong: lng}))
   }
 }
 
@@ -40,6 +40,14 @@ export function convertDestinationLatLong(location) {
   console.log(location)
   return (dispatch) => {
     dispatch({type: 'CONVERTING_DESTINATION_LAT_LONG'})
-    _getLatLong(location).then(destinationLatLong => dispatch({type: 'RETRIEVE_DESTINATION_LAT_LONG', destinationLatLong}))
+  return _getLatLong(location).then(({ lat, lng })=> dispatch({type: 'RETRIEVE_DESTINATION_LAT_LONG', destinationLat: lat, destinationLong: lng }))
+  }
+}
+
+export function convertLatLong(startLocation, destinationLocation){
+return async (dispatch) => {
+  await dispatch(convertStartLatLong(startLocation))
+  await dispatch(convertDestinationLatLong(destinationLocation))
+  debugger
   }
 }
