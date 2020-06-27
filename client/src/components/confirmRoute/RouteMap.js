@@ -10,12 +10,12 @@ class RouteMap extends Component {
     componentDidUpdate(prevProps) {
       if(!prevProps.mapboxKey && this.props.mapboxKey) {
         this.setState({
-        Map: ReactMapboxGl({
-        accessToken: this.props.mapboxKey
-        })
-      })
+          Map: ReactMapboxGl({
+            accessToken: this.props.mapboxKey
+          })
+          })
+        }
+      }
     }
-  }
-}
 
 export default RouteMap;
