@@ -8,7 +8,7 @@ function _fetchLocation(input) {
 function _getLatLong(location) {
   return fetch(`RailsApi/confirm_route/convert_lat_long/${location}`)
   .then(response => response.json())
-  .then(addressInfo => addressInfo.results[0].geometry.location) 
+  .then(addressInfo => addressInfo.features[0].geometry.coordinates) 
 }
 
 export function fetchStartingLocation(input) {
@@ -32,7 +32,7 @@ export function convertStartLatLong(location) {
   console.log(location)
   return (dispatch) => {
     dispatch({type: 'CONVERTING_START_LAT_LONG'})
-    return _getLatLong(location).then(({ lat, lng }) => dispatch({type: 'RETRIEVE_START_LAT_LONG',  startLat: lat, startLong: lng}))
+    return _getLatLong(location).then(coordinates => dispatch({type: 'RETRIEVE_START_LAT_LONG', coordinates: coordinates }))
   }
 }
 
@@ -40,7 +40,7 @@ export function convertDestinationLatLong(location) {
   console.log(location)
   return (dispatch) => {
     dispatch({type: 'CONVERTING_DESTINATION_LAT_LONG'})
-  return _getLatLong(location).then(({ lat, lng })=> dispatch({type: 'RETRIEVE_DESTINATION_LAT_LONG', destinationLat: lat, destinationLong: lng }))
+  return _getLatLong(location).then(coordinates => dispatch({type: 'RETRIEVE_DESTINATION_LAT_LONG', coordinates: coordinates}))
   }
 }
 
