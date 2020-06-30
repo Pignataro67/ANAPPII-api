@@ -1,4 +1,4 @@
-function _fetchLocation(input) {
+function _fetchDropdownLocations(input) {
   debugger
   return fetch(`RailsApi/search_locations/${input}`)
   .then(response => response.json())
@@ -7,8 +7,23 @@ function _fetchLocation(input) {
 
 function _getLatLong(location) {
   return fetch(`RailsApi/confirm_route/convert_lat_long/${location}`)
-  .then(response => response.json())
-  .then(addressInfo => addressInfo.features[0].geometry.coordinates) 
+  .then(addressInfo => addressInfo.results[0].geometry.location)
+}
+
+function _convertStartLatLong(location) {
+  console.log(location)
+  return (dispatch) => {
+    dispatch({type: 'CONVERTING_START_LAT_LONG'})
+    return _getLatLong(location).then(({ lat, lng }) => dispatch({type: 'RETRIEVE_START_LAT_LONG', startLat: lat, startLng: lng}))
+  }
+}
+
+function _convertDestinationLatLong(location) {
+  console.log(location)
+  return (dispatch) => {
+    dispatch({type: 'CONVERTING_DESTINATION_LAT_LONG'})
+    return _getLatLong(location).then(({ lat, lng })=> dispatch({type: 'RETRIEVE_DESTINATION_LAT_LONG', destinationLat: lat, destinationLng: lng }))
+  }
 }
 
 export function fetchStartingLocation(input) {
