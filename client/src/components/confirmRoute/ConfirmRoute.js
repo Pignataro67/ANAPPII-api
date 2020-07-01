@@ -29,9 +29,9 @@ handleRedirectBack = () => {
     const { redirectToResults } = this.state;
     const { redirectToSearch } = this.state;
 
-      if(redirectToResults) {
+      if (redirectToResults) {
         return <Redirect to="/results"/>
-      }else if(redirectToSearch) {
+      } else if (redirectToSearch) {
         return <Redirect to='/'/>
       }
     
