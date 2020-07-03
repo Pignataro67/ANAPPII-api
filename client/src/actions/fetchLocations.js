@@ -50,6 +50,24 @@ export function convertLatLong(startLocation, destinationLocation){
   }
 }
 
+export function fetchUberEstimate(startLat, startLng, destinationLat, destinationLng){
+  return (dispatch) => {
+    dispatch({ type: 'FETCHING_UBER_ESTIMATE' });
+    fetch(`/RailsApi/uber?startLat=${startLat}&startLng=${startLng}&destinationLat=${destinationLat}&destinationLng=${destinationLng}`)
+    .then(response => response.json())
+    .then(data => dispatch({ type: 'ADD_UBER_ESTIMATES_TO_STATE', estimates: data.prices }))
+  };
+}
+
+export function fetchLyftEstimate(startLat, startLng, destinationLat, destinationLng){
+  return (dispatch) => {
+    dispatch({ type: 'FETCHING_LYFT_ESTIMATE' });
+    fetch(`/RailsApi/lyft?startLat=${startLat}&startLng=${startLng}&destinationLat=${destinationLat}&destinationLng=${destinationLng}`)
+    .then(response => response.json())
+    .then(data => dispatch({ type: 'ADD_LYFT_ESTIMATES_TO_STATE', estimates: data.cost_estimates }))
+  };
+}
+
 export function convertDestinationLatLong(location) {
   console.log(location)
   return (dispatch) => {
