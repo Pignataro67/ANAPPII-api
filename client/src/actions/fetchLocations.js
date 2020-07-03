@@ -43,11 +43,10 @@ export function fetchDestination(input) {
   };
 } 
 
-export function convertStartLatLong(location) {
-  console.log(location)
-  return (dispatch) => {
-    dispatch({type: 'CONVERTING_START_LAT_LONG'})
-    return _getLatLong(location).then(coordinates => dispatch({type: 'RETRIEVE_START_LAT_LONG', coordinates: coordinates }))
+export function convertLatLong(startLocation, destinationLocation){
+  return async (dispatch) => {
+  await dispatch(_convertStartLatLong(startLocation))
+  await dispatch(_convertDestinationLatLong(destinationLocation))
   }
 }
 
