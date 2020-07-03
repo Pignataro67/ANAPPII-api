@@ -68,22 +68,6 @@ export function fetchLyftEstimate(startLat, startLng, destinationLat, destinatio
   };
 }
 
-export function convertDestinationLatLong(location) {
-  console.log(location)
-  return (dispatch) => {
-    dispatch({type: 'CONVERTING_DESTINATION_LAT_LONG'})
-  return _getLatLong(location).then(coordinates => dispatch({type: 'RETRIEVE_DESTINATION_LAT_LONG', coordinates: coordinates}))
-  }
-}
-
-export function convertLatLong(startLocation, destinationLocation){
-return async (dispatch) => {
-  await dispatch(convertStartLatLong(startLocation))
-  await dispatch(convertDestinationLatLong(destinationLocation))
-  debugger
-  }
-}
-
 export function getMapboxKey(){
   return (dispatch) => {
     dispatch({ type: 'FETCHING_MAPBOX_KEY' });

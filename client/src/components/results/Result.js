@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import Ride from './Ride';
 
 class Result extends Component {
   render() {
     return (
-      <h1>I am in result</h1>
-    )
+      <div>
+        
+      </div>
+    );
   }
 }
 
