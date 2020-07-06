@@ -9,6 +9,14 @@ import { connect } from 'react-redux';
 class ResultsContainer extends Component {
 
   render() {
+    
+    const cardStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      WebkitTransition: 'all', // note the capital 'W' here
+      msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+    };
+
     let cardLabel = "Enjoy your ride!"
 
     return (
