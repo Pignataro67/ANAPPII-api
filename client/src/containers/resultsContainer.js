@@ -20,10 +20,10 @@ class ResultsContainer extends Component {
     let cardLabel = "Enjoy your ride!"
 
     return (
-      <div>
+      <Card style={cardStyle}>
         <CardLabel cardLabel={cardLabel} />
         <Results {...this.props}/> 
-      </div>
+      </Card>
     )
   }
 }
