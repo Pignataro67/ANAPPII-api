@@ -78,7 +78,10 @@ handleUpdateDestinationAddress = (e) => {
           suggestedLocations={this.props.suggestedDestinations}
           onChange={this.handleChangeDestination} 
           onSubmit={this.handleDestinationSearch}
-          handleUpdateAddress={this.handleUpdateDestinationAddress}/> 
+          handleUpdateAddress={this.handleUpdateStartAddress}
+          loading={this.props.isFetchingStartingLocation}/> 
+          handleUpdateAddress={this.handleUpdateDestinationAddress}
+            loading={this.props.isFetchingDestination}/>
         <br/>
         <br/> 
         <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>
