@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from './components/Header';
 import  { BrowserRouter as Router, Route } from 'react-router-dom';
+import ConfirmRouteContainer from './containers/ConfirmRouteContainer';
 import ResultsContainer from './containers/ResultsContainer';
 import SearchContainer from './containers/SearchContainer';
 import Background from './images/Background.jpg';
-import { getMapboxKey } from './actions/fetchLocations';
+import { getMapboxKey } from './actions/mapboxActions';
 import './App.css';
 
 class App extends Component {
@@ -37,12 +37,12 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {getMapboxKey: () => dispatch(getMapboxKey())}
-}
-
 const mapStateToProps = (state) => {
   return {startingLocation: state.StartingLocation, destination: state.destination}
 } 
+
+const mapDispatchToProps = (dispatch) => {
+  return {getMapboxKey: () => dispatch(getMapboxKey())}
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
