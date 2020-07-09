@@ -41,11 +41,15 @@ handleOnClick = (idx) => {
               <Table.Row>
                 <Table.HeaderCell>Ride Type</Table.HeaderCell>
                 <Table.HeaderCell>Cost</Table.HeaderCell>
+              
+                <Table.HeaderCell>Like</Table.HeaderCell>
+              
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
-            {this.tableRows(this.props.estimates)}
+
+            {this.tableRows(this.state.estimates)}
             </Table.Body>
             </Table>
           <Button buttonTitle={this.props.buttonTitle}/>
