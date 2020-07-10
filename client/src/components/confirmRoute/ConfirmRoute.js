@@ -13,8 +13,8 @@ class ConfirmRoute extends Component {
 
 handleRedirect = async (e) => {
   e.preventDefault()
-  await this.props.actions.fetchUberEstimate(this.props.startLat, this.props.startLng, this.props.destinationLat, this.props.destinationLng)
-  this.props.actions.fetchLyftEstimate(this.props.startLat, this.props.startLng, this.props.destinationLat, this.props.destinationLng)
+  await this.props.actions.fetchUberEstimate(this.props.confirmRouteReducer.startLat, this.props.confirmRouteReducer.startLng, this.props.confirmRouteReducer.destinationLat, this.props.confirmRouteReducer.destinationLng)
+  this.props.actions.fetchLyftEstimate(this.props.confirmRouteReducer.startLat, this.props.confirmRouteReducer.startLng, this.props.confirmRouteReducer.destinationLat, this.props.confirmRouteReducer.destinationLng)
   this.setState({
     redirectToResults: true
   })
@@ -39,7 +39,7 @@ handleRedirectBack = () => {
       return (
     <div>
        <Card>
-         <RouteMap mapboxKey={this.props.mapboxKey} startLat={this.props.startLat} startLng={this.props.startLng} destinationLat={this.props.destinationLat} destinationLng={this.props.destinationLng}/>
+         <RouteMap mapboxKey={this.props.mapboxReducer.mapboxKey} startLat={this.props.confirmRouteReducer.startLat} startLng={this.props.confirmRouteReducer.startLng} destinationLat={this.props.confirmRouteReducer.confirmRouteReducer.destinationLat} destinationLng={this.props.confirmRouteReducer.destinationLng}/>
           <Button buttonTitle="No, let's try that again." onClick={this.handleRedirectBack}/> 
           <Button buttonTitle="Yes! Let's Ride..." onClick={this.handleRedirect}/>
         </Card>

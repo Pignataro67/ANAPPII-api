@@ -67,21 +67,21 @@ handleUpdateDestinationAddress = (e) => {
     return (
       <Card>
         <SearchInput label="Starting Location..." 
-          suggestedLocations={this.props.suggestedStartingLocations}
+          suggestedLocations={this.props.searchReducer.suggestedStartingLocations}
           onChange={this.handleChangeStart} 
           onSubmit={this.handleStartSearch}
           handleUpdateAddress={this.handleUpdateStartAddress}
-          value={this.state.startingLocation}/>
+          loading={this.props.searchReducer.isFetchingStartingLocation}/>
         <br/>
         <br/>
         <SearchInput label="Destination..." 
-          suggestedLocations={this.props.suggestedDestinations}
+          suggestedLocations={this.props.searchReducer.suggestedDestinations}
           onChange={this.handleChangeDestination} 
           onSubmit={this.handleDestinationSearch}
           handleUpdateAddress={this.handleUpdateStartAddress}
           loading={this.props.isFetchingStartingLocation}/> 
           handleUpdateAddress={this.handleUpdateDestinationAddress}
-            loading={this.props.isFetchingDestination}/>
+            loading={this.props.searchReducer.isFetchingDestination}/>
         <br/>
         <br/> 
         <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>
