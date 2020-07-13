@@ -27,9 +27,9 @@ class App extends Component {
          }} className="App">
         <Router>
           <div>
-          <Route exact path="/" component={SearchContainer}/>
-          <Route exact path="/confirm_route" component={ConfirmRouteContainer}/>
-          <Route exact path="/results" component={ResultsContainer}/>
+            <Route exact path="/" component={SearchContainer}/>
+            <Route exact path="/confirm_route" component={ConfirmRouteContainer}/>
+            <Route exact path="/results" component={ResultsContainer}/>
           </div>
         </Router>
       </div>

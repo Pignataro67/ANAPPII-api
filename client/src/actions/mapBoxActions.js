@@ -1,4 +1,4 @@
-export function getMapboxKey(){
+export function getMapboxKey() {
   return (dispatch) => {
     dispatch({ type: 'FETCHING_MAPBOX_KEY' });
     fetch("/RailsApi/confirm_route/mapbox")
