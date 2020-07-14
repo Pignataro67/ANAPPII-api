@@ -40,11 +40,11 @@ handleRedirectBack = () => {
     <div>
        <Card>
          <RouteMap mapboxKey={this.props.mapboxReducer.mapboxKey} startLat={this.props.confirmRouteReducer.startLat} startLng={this.props.confirmRouteReducer.startLng} destinationLat={this.props.confirmRouteReducer.confirmRouteReducer.destinationLat} destinationLng={this.props.confirmRouteReducer.destinationLng}/>
-          <Button buttonTitle="No, let's try that again." onClick={this.handleRedirectBack}/> 
-          <Button buttonTitle="Yes! Let's Ride..." onClick={this.handleRedirect}/>
+         <Button buttonTitle="No, let's try that again." onClick={this.handleRedirectBack}/> 
+         <Button buttonTitle="Yes! Let's Ride..." onClick={this.handleRedirect}/>
         </Card>
       </div>
-    )
+    );
   }
 }
 
