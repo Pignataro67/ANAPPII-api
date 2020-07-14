@@ -77,11 +77,9 @@ handleUpdateDestinationAddress = (e) => {
         <SearchInput label="Destination..." 
           suggestedLocations={this.props.searchReducer.suggestedDestinations}
           onChange={this.handleChangeDestination} 
-          onSubmit={this.handleDestinationSearch}
-          handleUpdateAddress={this.handleUpdateStartAddress}
-          loading={this.props.isFetchingStartingLocation}/> 
+          onSubmit={this.handleDestinationSearch} 
           handleUpdateAddress={this.handleUpdateDestinationAddress}
-            loading={this.props.searchReducer.isFetchingDestination}/>
+          loading={this.props.searchReducer.isFetchingDestination}/>
         <br/>
         <br/> 
         <Button buttonTitle="Submit" onClick={this.handleFormSubmit}/>
