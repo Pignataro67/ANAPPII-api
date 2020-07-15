@@ -6,16 +6,16 @@ import * as confirmRouteActions from '../actions/confirmRouteActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-class ConfirmRouteContainer extends Component{
+class ConfirmRouteContainer extends Component {
 
     render() {
-        let cardLabel = "Does this look right?"
+      let cardLabel = "Does this look right?"
 
-        return (
-      <div>
+      return (
+      <Card>
         <CardLabel cardLabel={cardLabel} />
         <ConfirmRoute {...this.props}/> 
-      </div>
+      </Card>
     )
   }
 }
