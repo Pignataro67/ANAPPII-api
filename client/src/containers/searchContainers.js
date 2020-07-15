@@ -9,18 +9,18 @@ class SearchContainer extends Component {
 
   render() {
     let cardLabel = "Enter your starting and ending locations below:"
+    
     return (
-      <div>
+      <Card>
         <CardLabel cardLabel={cardLabel} />
         <Search /> 
-      </div>
+      </Card>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  startingLocation: state.startingLocation,
-  destination: state.destination
+  ...state
 })
 
 const mapDispatchToProps = (dispatch) => {

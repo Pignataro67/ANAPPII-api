@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import Results from '../components/results/Results';
 import CardLabel from '../components/CardLabel';
 import Card from '../components/Card';
-import * as searchActions from '../actions/fetchLocations';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class ResultsContainer extends Component {
 
   render() {
-    
     const cardStyle = {
       display: 'flex',
       flexDirection: 'column',
